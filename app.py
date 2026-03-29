@@ -53,9 +53,9 @@ if st.button("Abra o seu coração e leia"):
 
     Sabe, antes de você chegar, o mundo parecia seguir um roteiro meio cinza, meio automático. Eu vivia, mas não <i>sentia</i> com a intensidade que sinto hoje. Você não apenas entrou na minha vida; você acendeu as luzes, coloriu os dias e deu um novo sentido para a palavra 'felicidade'.<br><br>
 
-    Eu sou completamente apaixonado pela pessoa que você é. Eu amo a sua força, o seu jeito de ver o mundo, e a forma como você consegue me acalmar apenas com o som da sua voz. Adoro observar os seus detalhes... como a sua expressão quando está concentrada, ou o jeito que você sorri quando <b>[coloque aqui um detalhe fofo, ex: 'toma café' ou 'vê um gatinho']</b>. Cada pequena coisa em você me faz ter certeza de que eu tirei a sorte grande.<br><br>
+    Eu sou completamente apaixonado pela pessoa que você é. Eu amo a sua força, o seu jeito de ver o mundo, e a forma como você consegue me acalmar apenas com o som da sua voz. Adoro observar os seus detalhes... como a sua expressão quando está concentrada, ou o jeito que você sorri. Cada pequena coisa em você me faz ter certeza de que eu tirei a sorte grande.<br><br>
 
-    Amo a nossa história, desde o momento em que <b>[cite uma memória curta, ex: 'nos vimos pela primeira vez naquele bar']</b> até os dias mais simples, preguiçosos no sofá. É nos seus braços que eu encontrei o meu lugar seguro, o meu lar. Com você, eu não tenho medo do futuro, porque qualquer futuro que inclua você já é perfeito para mim.<br><br>
+    Amo a nossa história, desde o momento em que <b> te mandei a primeira mensagem naquele aplicativo</b> até os dias mais simples. É nos seus braços que eu encontrei o meu lugar seguro, o meu lar. Com você, eu não tenho medo do futuro, porque qualquer futuro que inclua você já é perfeito para mim.<br><br>
 
     Eu quero estar ao seu lado em cada conquista, segurar sua mão em cada dificuldade e envelhecer acumulando memórias lindas como as que já temos. Você é a minha escolha diária, o meu plano A, B e C, o amor da minha vida.<br><br>
     
@@ -67,4 +67,4 @@ if st.button("Abra o seu coração e leia"):
     st.markdown(carta, unsafe_allow_html=True)
     
     # Mensagem final destacada
-    st.success("Para sempre seu. ❤️")
+    st.success("Para sempre vou te amar ❤️")
