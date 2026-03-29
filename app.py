@@ -67,4 +67,4 @@ if st.button("Abra o seu coração e leia"):
     st.markdown(carta, unsafe_allow_html=True)
     
     # Mensagem final destacada
-    st.success("Para sempre vou te amar ❤️")
+    st.success("Para sempre vou te amar minha princesa 🫶❤️")
