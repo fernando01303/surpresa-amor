@@ -1,107 +1,54 @@
 import streamlit as st
-import random
+import time
 
-# Configura a aba do navegador
+# Configura a aba do navegador para ficar personalizada
 st.set_page_config(page_title="Para a razão do meu sorriso", page_icon="❤️", layout="centered")
 
-# --- CSS PERSONALIZADO (A MÁGICA ESTÁ AQUI) ---
-# Este bloco define como o texto e a animação de corações funcionam.
-custom_css = """
-<style>
-/* Centraliza e embeleza o texto principal */
-.stMarkdown {
-    font-size: 20px !important;
-    font-weight: 500;
-    line-height: 1.6;
-    color: #31333F;
-    text-align: center;
-}
-.stTitle {
-    color: #ff4b4b;
-    text-align: center;
-}
-
-/* Define a animação dos corações lentos */
-@keyframes coracoesLentos {
-    0% { transform: translateY(100vh) scale(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
-}
-
-/* Estila cada coração individual */
-.coracao {
-    position: fixed;
-    bottom: -10px;
-    font-size: 24px;
-    color: #ff4b4b;
-    user-select: none;
-    pointer-events: none;
-    animation: coracoesLentos linear infinite;
-    /* Velocidade LENTA: 10 a 15 segundos para subir */
-    animation-duration: calc(10s + (5s * var(--sorte-velocidade)));
-}
-
-/* Container para segurar os corações */
-#container-coracoes {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 999; /* Garante que fiquem na frente */
-}
-</style>
-"""
-# Injeta o CSS
-st.markdown(custom_css, unsafe_allow_html=True)
-
-
-# --- LÓGICA DO PROGRAMA ---
+# Estilização básica para deixar o texto mais bonito (CSS centralizado)
+st.markdown("""
+    <style>
+    .big-font {
+        font-size:20px !important;
+        font-weight: 500;
+        line-height: 1.6;
+        color: #31333F;
+    }
+    .stTitle {
+        color: #ff4b4b;
+        text-align: center;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 # Começa a página com suspense
 st.title("Oi, meu amor. ❤️")
 st.write("---")
-st.markdown("Eu criei este pequeno espaço digital só para nós dois. Demorou um pouquinho para programar, mas cada linha de código foi pensada em você.")
-st.markdown("Há algo que eu preciso muito te dizer, do fundo do meu coração.")
+st.markdown("<p class='big-font'>Eu criei este pequeno espaço digital só para nós dois. Demorou um pouquinho para programar, mas cada linha de código foi pensada em você.</p>", unsafe_allow_html=True)
+st.markdown("<p class='big-font'>Há algo que eu preciso muito te dizer, do fundo do meu coração.</p>", unsafe_allow_html=True)
 
 st.write(" ")
 st.write(" ")
 
-# Variável para controlar se os corações devem aparecer
-if 'mostrar_coracoes' not in st.session_state:
-    st.session_state.mostrar_coracoes = False
-
-# O botão que ela clica
+# O botão que vai disparar a emoção
 if st.button("Abra o seu coração e leia"):
-    st.session_state.mostrar_coracoes = True
-
-# --- EXIBE A ANIMAÇÃO E A CARTA SE O BOTÃO FOI CLICADO ---
-if st.session_state.mostrar_coracoes:
     
-    # --- GERAÇÃO HTML DOS CORAÇÕES ---
-    # Cria 30 corações com posições e velocidades levemente aleatórias
-    coracoes_html = '<div id="container-coracoes">'
-    for i in range(30):
-        posicao_horizontal = random.uniform(0, 100) # Posição X (0-100%)
-        atraso_inicial = random.uniform(0, 5) # Atraso para começar (0-5s)
-        # Sorteia uma variação de velocidade para misturar (será usada pelo CSS)
-        sorte_velocidade = random.uniform(0, 1) 
-        
-        coracoes_html += f'<span class="coracao" style="left: {posicao_horizontal}vw; animation-delay: {atraso_inicial}s; --sorte-velocidade: {sorte_velocidade};">❤️</span>'
-    coracoes_html += '</div>'
+    # Efeito de carregamento para criar uma pausa dramática
+    with st.spinner('Preparando o que meu coração quer te dizer...'):
+        time.sleep(2) # Espera 2 segundos
     
-    # Injeta o HTML dos corações na tela
-    st.markdown(coracoes_html, unsafe_allow_html=True)
+    # Efeito visual de confetes/balões
+    st.balloons()
     
-    
-    # --- CARTA PROFUNDA ---
     st.write("---")
+    
+    # Título da Carta
     st.subheader("Minha vida,")
 
+    # --- INÍCIO DA CARTA PROFUNDA ---
+    # DICA: Edite os textos abaixo para personalizar com a história de vocês.
+    
     carta = """
-    <p class='big-font' style='text-align: justify;'>
+    <p class='big-font'>
     Eu sei que parece estranho receber um link e abrir um programinha no celular, mas a verdade é que eu não conseguia encontrar um jeito comum de te dizer tudo o que está entalado aqui no meu peito. Eu precisava criar algo novo, algo que fosse só nosso, para tentar traduzir o inexplicável.<br><br>
 
     Sabe, antes de você chegar, o mundo parecia seguir um roteiro meio cinza, meio automático. Eu vivia, mas não <i>sentia</i> com a intensidade que sinto hoje. Você não apenas entrou na minha vida; você acendeu as luzes, coloriu os dias e deu um novo sentido para a palavra 'felicidade'.<br><br>
@@ -115,5 +62,9 @@ if st.session_state.mostrar_coracoes:
     Obrigado por me permitir te amar e por me amar de volta. Eu te amo mais do que as palavras podem dizer, mais do que este código pode mostrar. Eu te amo com tudo o que eu sou.
     </p>
     """
+    
+    # Exibe a carta usando HTML para formatação
     st.markdown(carta, unsafe_allow_html=True)
+    
+    # Mensagem final destacada
     st.success("Para sempre seu. ❤️")
